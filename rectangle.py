@@ -1,8 +1,12 @@
 class Rectangle:
-    def __init__(self, position: tuple, height: float, width: float):
-        self.position = position
+    def __init__(self, x: float, y: float, height: float, width: float):
+        self.x = x
+        self.y = y
         self.height = height
         self.width = width
+
+    def __repr__(self):
+        return f"Square with position {self.x},{self.y} has the height of {self.height} and width of {self.width}"
     
     @property
     def height(self):
@@ -27,6 +31,11 @@ class Rectangle:
     @property
     def perimeter(self):
         return 2 * (self._height + self._width)
-
+    
+    def is_square(self) -> bool:
+        return self.width == self.height
+    
+    def __eq__(self, other: Rectangle):
+        return self.area == other.area
 
     
