@@ -6,7 +6,7 @@ class Rectangle:
         self.width = width
 
     def __repr__(self):
-        return f"Square with position {self.x},{self.y} has the height of {self.height} and width of {self.width}"
+        return f"Rectangle with position x = {self.x},y = {self.y}, height = {self.height} width = {self.width}"
     
     @property
     def height(self):
@@ -35,7 +35,5 @@ class Rectangle:
     def is_square(self) -> bool:
         return self.width == self.height
     
-    def __eq__(self, other: Rectangle):
+    def __eq__(self, other) -> bool:
         return self.area == other.area
-
-    
