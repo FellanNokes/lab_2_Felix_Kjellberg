@@ -14,4 +14,4 @@ class Circle:
     
     @property
     def circumference(self) -> float:
-        return 2*self.radius*np.pi
+        return 2*(self.radius*np.pi)

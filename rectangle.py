@@ -1,9 +1,9 @@
 import utils as utl
-class Rectangle:
+from shape import Shape
+
+class Rectangle(Shape):
     def __init__(self, x: float, y: float, height: float, width: float):
-        utl.validate_numbers(x,y)
-        self.x = x
-        self.y = y
+        super().__init__(x, y)
         self.height = height
         self.width = width
 
