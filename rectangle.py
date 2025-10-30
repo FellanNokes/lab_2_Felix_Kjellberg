@@ -1,5 +1,7 @@
+import utils as utl
 class Rectangle:
     def __init__(self, x: float, y: float, height: float, width: float):
+        utl.validate_numbers(x,y)
         self.x = x
         self.y = y
         self.height = height
@@ -14,6 +16,7 @@ class Rectangle:
     
     @height.setter
     def height(self, value):
+        utl.validate_positive_numbers(value)
         self._height = value
 
     @property
@@ -22,6 +25,7 @@ class Rectangle:
     
     @width.setter
     def width(self, value):
+        utl.validate_positive_numbers(value)
         self._width = value
 
     @property
@@ -36,4 +40,4 @@ class Rectangle:
         return self.width == self.height
     
     def __eq__(self, other) -> bool:
-        return self.area == other.area
+        return self.height == other.height and self.width == other.width
