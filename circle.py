@@ -1,5 +1,6 @@
 import numpy as np
 from shape import Shape
+import utils as utl
 
 
 class Circle(Shape):
@@ -13,6 +14,7 @@ class Circle(Shape):
 
     @radius.setter
     def radius(self, value):
+        utl.validate_positive_numbers(value)
         self._radius = value
 
     @property
@@ -34,3 +36,19 @@ class Circle(Shape):
             return True
         else:
             return False
+        
+    def __eq__(self, other) -> bool:
+        # I did google how to check if two circles are equal and took the formula but the code is all mine 
+        return ((other.x - self.x)**2 +(other.y - self.y)**2)**.5 == 0 and self.radius == other.radius
+    
+    def __lt__(self, other) -> bool:
+        return self.radius < other.radius
+    
+    def __le__(self, other) -> bool:
+        return self.radius <= other.radius
+    
+    def __gt__(self, other) -> bool:
+        return self.radius > other.radius
+    
+    def __ge__(self, other) -> bool:
+        return self.radius >= other.radius
