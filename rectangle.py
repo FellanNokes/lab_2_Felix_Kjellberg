@@ -29,15 +29,27 @@ class Rectangle(Shape):
         self._width = value
 
     @property
-    def area(self):
+    def area(self) -> float:
         return self._height * self._width
     
     @property
-    def perimeter(self):
+    def perimeter(self) -> float:
         return 2 * (self._height + self._width)
     
     def is_square(self) -> bool:
         return self.width == self.height
     
     def __eq__(self, other) -> bool:
-        return self.height == other.height and self.width == other.width
+        return type(self) is type(other) and self.height == other.height and self.width == other.width
+    
+    def __lt__(self, other) -> bool:
+        return self.area < other.area
+
+    def __le__(self, other) -> bool:
+        return self.area <= other.area
+    
+    def __gt__(self, other) -> bool:
+        return self.area > other.area
+
+    def __ge__(self, other) -> bool:
+        return self.area >= other.area

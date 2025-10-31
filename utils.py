@@ -8,6 +8,6 @@ def validate_numbers(*values):
 def validate_positive_numbers(*values) -> None:
         for value in values:
             validate_numbers(value)
-            if value < 0:
+            if value <= 0:
                 raise ValueError(f"Value can't be negative, not {value}")
             
