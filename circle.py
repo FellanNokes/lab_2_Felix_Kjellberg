@@ -18,7 +18,7 @@ class Circle(Shape):
         self._radius = value
 
     @property
-    def circumference(self) -> float:
+    def perimeter(self) -> float:
         return 2 * np.pi * self.radius
 
     @property
@@ -26,29 +26,33 @@ class Circle(Shape):
         return np.pi * self.radius**2
 
     def __repr__(self):
-        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, circumference={self.circumference}, area={self.area})"
-    
+        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, circumference={self.perimeter}, area={self.area})"
+
     def __str__(self):
-        return f"A circle that is located at (x = {self.x} y = {self.y}) it has a circumference of {self.circumference} and an area of {self.area})"
+        return f"A circle that is located at (x = {self.x} y = {self.y}) it has a circumference of {self.perimeter} and an area of {self.area})"
 
     def is_unit_circle(self) -> bool:
         if self.x == 0 and self.y == 0 and self.radius == 1:
             return True
         else:
             return False
-        
+
     def __eq__(self, other) -> bool:
-        # I did google how to check if two circles are equal and took the formula but the code is all mine 
-        return ((other.x - self.x)**2 +(other.y - self.y)**2)**.5 == 0 and self.radius == other.radius
-    
+        # I did google how to check if two circles are equal and took the formula but the code is all mine
+        return (
+            type(self) is type(other)
+            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0
+            and self.radius == other.radius
+        )
+
     def __lt__(self, other) -> bool:
         return self.radius < other.radius
-    
+
     def __le__(self, other) -> bool:
         return self.radius <= other.radius
-    
+
     def __gt__(self, other) -> bool:
         return self.radius > other.radius
-    
+
     def __ge__(self, other) -> bool:
         return self.radius >= other.radius
