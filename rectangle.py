@@ -38,7 +38,7 @@ class Rectangle(Shape):
         return f"Rectangle (x ={self.x},y ={self.y}, height={self.height} width={self.width}, perimeter={self.perimeter}, area={self.area})"
 
     def __str__(self):
-        return f"A rectangle located at (x = s{self.x}, y {self.y}) it has a perimeter of {self.perimeter} and an area of {self.area}"
+        return f"A rectangle located at (x = {self.x}, y {self.y}) it has a perimeter of {self.perimeter} and an area of {self.area}"
 
 
     def is_square(self) -> bool:
