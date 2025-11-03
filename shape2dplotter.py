@@ -20,7 +20,7 @@ class Shape2dPlotter:
 
         if size is None:
             size = self._size
-            
+
         fig, ax = plt.subplots(figsize=(20, 20))
         fig.patch.set_facecolor('#ffffff')
 
@@ -45,12 +45,16 @@ class Shape2dPlotter:
         ax.grid(which='both', color='grey', linewidth=1, linestyle='-', alpha=0.2)
 
         # Draw shapes
-        for shape in self._shapes:
+        colors = ['r', 'b', 'g', 'm', 'c', 'y', 'orange', 'purple']
+
+        for i,shape in enumerate(self._shapes):
+            color = colors[i % len(colors)]
             if isinstance(shape, Circle):
-                ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc='none', ec='b', lw=2))
+                ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc='none', ec=color, lw=2))
             elif isinstance(shape, Rectangle):
+                # moves the start position since the patch.Rectangle draws from the bottom left so that the center of the rectangle is at the x and y
                 x = shape.x - shape.width * 0.5
                 y = shape.y - shape.height * 0.5
-                ax.add_patch(patches.Rectangle((x, y), shape.width, shape.height, fc='none', ec='r', lw=2))
+                ax.add_patch(patches.Rectangle((x, y), shape.width, shape.height, fc='none', ec=color, lw=2))
 
         plt.show()
