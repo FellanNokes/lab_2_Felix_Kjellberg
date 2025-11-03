@@ -6,13 +6,21 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Shape2dPlotter:
-    def __init__(self, *shapes: Shape):
+    def __init__(self, *shapes: Shape, size=20, auto_plot=False):
         self._shapes = tuple(shapes)
+        self._size = size
+
+        if auto_plot:
+            self.plot(size)
         
     
-    def plot(self, size):
+    def plot(self, size=None):
         # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
         # I have made some changes by my self and with the help of ChatGPT
+
+        if size is None:
+            size = self._size
+            
         fig, ax = plt.subplots(figsize=(20, 20))
         fig.patch.set_facecolor('#ffffff')
 
