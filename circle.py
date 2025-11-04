@@ -11,7 +11,7 @@ class Circle(Shape):
     - x (float): x position of the circle
     - y (float): y position of the circle
     - radius (float): radius of the circle
-    - area (float): area of the rectanlge
+    - area (float): area of the circle
     - perimeter(float): perimeter of circle
 
     Nethods:
