@@ -1,7 +1,7 @@
 import utils as utl
 class Shape():
     """
-    A class representing a shape that holds a 2 dimensional posistion
+    A class representing a shape
 
     Attributes:
     - x (float): x position of the shape

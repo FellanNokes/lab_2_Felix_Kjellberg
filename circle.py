@@ -4,7 +4,37 @@ import utils as utl
 
 
 class Circle(Shape):
+    """
+    A class representing a circle
+
+    Attributes:
+    - x (float): x position of the circle
+    - y (float): y position of the circle
+    - radius (float): radius of the circle
+    - area (float): area of the rectanlge
+    - perimeter(float): perimeter of circle
+
+    Nethods:
+    - translate(): adds the new x and y to the current position
+    - is_unit_circle() -> bool: returns True if the circle is located at 0, 0 and has a radius of 1 otherwise False
+
+    Example usage:
+    >>> circle1 = circle(0,0,1)
+    >>> circle1.is_unit_circle()
+    True
+    >>> circle1.translate(2,3)
+    >>> print(circle1)
+    A circle that is located at (x = 0 y = 0) it has a circumference of 12.566370614359172 and an area of 12.566370614359172)
+    """
     def __init__(self, x, y, radius):
+        """
+        Initializes a new instance of the circle class.
+
+        Parameters:
+        - x (float): x position of the circle
+        - y (float): y position of the circle
+        - radius (float): radius of the circle
+        """
         super().__init__(x, y)
         self.radius = radius
 
@@ -26,12 +56,13 @@ class Circle(Shape):
         return np.pi * self.radius**2
 
     def __repr__(self):
-        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, circumference={self.perimeter}, area={self.area})"
+        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, circumference={self.perimeter}, area={self.area}"
 
     def __str__(self):
         return f"A circle that is located at (x = {self.x} y = {self.y}) it has a circumference of {self.perimeter} and an area of {self.area})"
 
     def is_unit_circle(self) -> bool:
+        """returns True if the circle is located at 0, 0 and has a radius of 1 otherwise False"""
         if self.x == 0 and self.y == 0 and self.radius == 1:
             return True
         else:
