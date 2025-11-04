@@ -22,7 +22,7 @@ class Shape2dPlotter:
             size = self._size
 
         fig, ax = plt.subplots(figsize=(20, 20))
-        fig.patch.set_facecolor('#ffffff')
+        fig.patch.set_facecolor("#ffffff")
 
         #sets the length of y and x to all be the same as size
         ax.set(xlim=(-size, size), ylim=(-size, size), aspect='equal')

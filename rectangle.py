@@ -18,7 +18,7 @@ class Rectangle(Shape):
         self._height = value
 
     @property
-    def width(self):
+    def width(self) -> float:
         return self._width
 
     @width.setter
@@ -28,11 +28,11 @@ class Rectangle(Shape):
 
     @property
     def area(self) -> float:
-        return self._height * self._width
+        return self.height * self.width
 
     @property
     def perimeter(self) -> float:
-        return 2 * (self._height + self._width)
+        return 2 * (self.height + self.width)
     
     def __repr__(self):
         return f"Rectangle (x ={self.x},y ={self.y}, height={self.height} width={self.width}, perimeter={self.perimeter}, area={self.area})"
