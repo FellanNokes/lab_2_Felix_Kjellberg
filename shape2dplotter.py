@@ -1,5 +1,7 @@
 from rectangle import Rectangle
+from cube import Cube
 from circle import Circle
+from sphere import Sphere
 from shape import Shape
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
@@ -66,11 +68,18 @@ class Shape2dPlotter:
         for i,shape in enumerate(self._shapes):
             color = colors[i % len(colors)]
             if isinstance(shape, Circle):
-                ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc='none', ec=color, lw=2))
+                if isinstance(shape, Sphere):
+                    ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc=color, ec=color))
+                else:
+                    ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc='none', ec=color, lw=2))
             elif isinstance(shape, Rectangle):
                 # moves the start position since the patch.Rectangle draws from the bottom left so that the center of the rectangle is at the x and y
                 x = shape.x - shape.width * 0.5
                 y = shape.y - shape.height * 0.5
                 ax.add_patch(patches.Rectangle((x, y), shape.width, shape.height, fc='none', ec=color, lw=2))
+            elif isinstance(shape, Cube):
+                x = shape.x - shape.sidelength * 0.5
+                y = shape.y - shape.sidelength * 0.5
+                ax.add_patch(patches.Rectangle((x, y), shape.sidelength, shape.sidelength, fc=color, ec=color))
 
         plt.show()
