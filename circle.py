@@ -68,22 +68,3 @@ class Circle(Shape):
         else:
             return False
 
-    def __eq__(self, other) -> bool:
-        # I did google how to check if two circles are equal and took the formula but the code is all mine
-        return (
-            type(self) is type(other)
-            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0
-            and self.radius == other.radius
-        )
-
-    def __lt__(self, other) -> bool:
-        return self.radius < other.radius
-
-    def __le__(self, other) -> bool:
-        return self.radius <= other.radius
-
-    def __gt__(self, other) -> bool:
-        return self.radius > other.radius
-
-    def __ge__(self, other) -> bool:
-        return self.radius >= other.radius

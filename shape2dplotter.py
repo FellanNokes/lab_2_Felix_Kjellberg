@@ -16,6 +16,11 @@ class Shape2dPlotter:
 
     Methods:
     - plot (size: int|float): plots all the shapes in the instance to a graph with cartesian coordinates
+
+    Example usage:
+    >>> plotter = Shaped2dPlotter(Circle(0,0,1),Rectangle(4,8,5,8), size = 30, auto_plot=True)
+    >>> plotter = Shaped2dPlotter(Circle(0,0,1),Rectangle(4,8,5,8))
+    >>> plotter.plot()
     """
     def __init__(self, *shapes: Shape, size=20, auto_plot=False):
         self._shapes = tuple(shapes)

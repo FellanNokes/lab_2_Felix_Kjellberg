@@ -85,14 +85,3 @@ class Rectangle(Shape):
             and self.width == other.width
         )
 
-    def __lt__(self, other) -> bool:
-        return self.area < other.area
-
-    def __le__(self, other) -> bool:
-        return self.area <= other.area
-
-    def __gt__(self, other) -> bool:
-        return self.area > other.area
-
-    def __ge__(self, other) -> bool:
-        return self.area >= other.area

@@ -50,4 +50,22 @@ class Shape():
         self._y += y
 
     #TODO: maybe we want a reset position to 0, 0
+    def __eq__(self, other) -> bool:
+        return (
+            type(self) is type(other)
+            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0 #TODO: maybe just use other.x == self.x
+            and self.area == other.area
+        )
+
+    def __lt__(self, other) -> bool:
+        return self.area < other.area
+
+    def __le__(self, other) -> bool:
+        return self.area <= other.area
+
+    def __gt__(self, other) -> bool:
+        return self.area > other.area
+
+    def __ge__(self, other) -> bool:
+        return self.area >= other.area
     

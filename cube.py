@@ -61,22 +61,3 @@ class Cube(Shape):
 
     def __str__(self):
         return f"A cube located at (x = {self.x}, y {self.y}) it has the surface area of {self.area} and the volume of {self.volume}"
-
-    def __eq__(self, other) -> bool:
-        return (
-            type(self) is type(other)
-            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0 #TODO: maybe just use other.x == self.x
-            and self.volume == other.volume
-        )
-
-    def __lt__(self, other) -> bool:
-        return self.volume < other.volume
-
-    def __le__(self, other) -> bool:
-        return self.volume <= other.volume
-
-    def __gt__(self, other) -> bool:
-        return self.volume > other.volume
-
-    def __ge__(self, other) -> bool:
-        return self.volume >= other.volume
