@@ -8,7 +8,7 @@ class Cube(Shape):
     Attributes:
     - x (float): x position of the cube
     - y (float): y position of the cube
-    - sidelength (float): sidelenght of the cube
+    - size (float): sidelenght of the cube
     - area (float): the surface area of the cube
     - sidearea(float): sidearea of one side of the cube
     - volume(float): the volume of the cube
@@ -22,30 +22,30 @@ class Cube(Shape):
     >>> print(cube1)
     A cube located at (x = 2, y 3) it has the surface area of 600 and the volume of 1000
     """
-    def __init__(self, x, y, sidelength: float):
+    def __init__(self, x, y, size: float):
         """
         Initializes a new instance of the Cube class
 
         Parameters:
         - x (float): x position of the cube
         - y (float): y position of the cube
-        - sidelength (float): the length of side of the cube
+        - size (float): the length of each side of the cube
         """
         super().__init__(x, y)
-        self.sidelength = sidelength
+        self.size = size
 
     @property
-    def sidelength(self):
-        return self._sidelength
+    def size(self):
+        return self._size
     
-    @sidelength.setter
-    def sidelength(self, value):
+    @size.setter
+    def size(self, value):
         utl.validate_positive_numbers(value)
-        self._sidelength = value
+        self._size = value
     
     @property
     def sidearea(self) -> float:
-        return self.sidelength**2
+        return self.size**2
     
     @property
     def area(self) -> float:
@@ -54,10 +54,11 @@ class Cube(Shape):
     
     @property
     def volume(self) -> float:
-        return self.sidelength ** 3
+        return self.size ** 3
     
     def __repr__(self):
-        return f"Cube (x ={self.x},y ={self.y}, sidelength={self.sidelength}, volume={self.volume}, sidearea={self.sidearea}, area={self.area})"
+        return f"Cube (x ={self.x},y ={self.y}, size={self.size}, volume={self.volume}, sidearea={self.sidearea}, area={self.area})"
 
     def __str__(self):
-        return f"A cube located at (x = {self.x}, y {self.y}) it has the surface area of {self.area} and the volume of {self.volume}"
+        return f"A cube located at (x = {self.x}, y {self.y}) each side is {self.size} long it has the surface area of {self.area} and the volume of {self.volume}"
+    

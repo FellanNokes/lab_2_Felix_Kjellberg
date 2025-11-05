@@ -33,6 +33,9 @@ class Shape2dPlotter:
         
     
     def plot(self, size=None):
+        """
+        Takes in any amount of shapes of all types and plots them on a graph with cartesian coordinates
+        """
         # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
         # I have made some changes by my self and with the help of ChatGPT
         size = size*.5
@@ -62,9 +65,9 @@ class Shape2dPlotter:
 
         ax.grid(which='both', color='grey', linewidth=1, linestyle='-', alpha=0.2)
 
-        # Draw shapes
+        # Draw shapes, this part i did by myself
         colors = ['r', 'b', 'g', 'm', 'c', 'y', 'orange', 'purple']
-
+        
         for i,shape in enumerate(self._shapes):
             color = colors[i % len(colors)]
             if isinstance(shape, Circle):

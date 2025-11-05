@@ -5,15 +5,15 @@ def test_init_x_y_valid():
     cube = Cube(-2,-4, 4)
     assert cube.x == -2, cube.y == -4
 
-def test_init_sidelength_valid():
+def test_init_size_valid():
     cube = Cube(2,3,5)
-    assert cube.sidelength == 5
+    assert cube.size == 5
 
-def test_negative_sidelength_fail():
+def test_negative_size_fail():
     with raises(ValueError):
         Cube(2,3,-4)
 
-def test_zero_sidelength_fail():
+def test_zero_size_fail():
     with raises(ValueError):
         Cube(2,3,0)
 
@@ -34,12 +34,12 @@ def test_eq_same_values_valid():
     cube2 = Cube(0,1,2)
     assert cube1 == cube2
 
-def test_eq_same_sidelengths_different_pos_not_same_valid():
+def test_eq_same_sizes_different_pos_not_same_valid():
     cube1 = Cube(3,4,4)
     cube2 = Cube(4,4,4)
     assert cube1 != cube2
 
-def test_eq_same_pos_different_sidelengths_not_same_valid():
+def test_eq_same_pos_different_sizes_not_same_valid():
     cube1 = Cube(4,4,1)
     cube2 = Cube(4,4,4)
     assert cube1 != cube2
