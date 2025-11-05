@@ -15,7 +15,7 @@ class Rectangle(Shape):
     - perimeter(float): perimeter of rectangle
 
     Nethods:
-    - translate(): adds the new x and y to the current position
+    - translate(x:float, y:float): adds the new x and y to the current position
     - is_square() -> bool: returns True if height and width are the same otherwise False
 
     Example usage:

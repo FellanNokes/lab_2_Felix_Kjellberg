@@ -8,7 +8,7 @@ class Shape():
     - y (float): y position of the shape
 
     Nethods:
-    - translate(): adds the new x and y to the current position
+    - translate(x:float, y:float): adds the new x and y to the current position
 
     Example usage:
     >>> shape1 = Shape(1,3)

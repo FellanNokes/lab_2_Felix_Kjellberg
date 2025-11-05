@@ -6,6 +6,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Shape2dPlotter:
+    """
+    A class for plotting shapes on graph with cartesian coordinates
+
+    Attributes:
+    - * shapes (Shape): shapes to plot on graph
+    - size (int,float): size of how many numbers to be put on graph
+    - auto_plot (bool): if set to true the instance of the class will plot when initializing
+
+    Methods:
+    - plot (size: int|float): plots all the shapes in the instance to a graph with cartesian coordinates
+    """
     def __init__(self, *shapes: Shape, size=20, auto_plot=False):
         self._shapes = tuple(shapes)
         self._size = size
@@ -17,7 +28,7 @@ class Shape2dPlotter:
     def plot(self, size=None):
         # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
         # I have made some changes by my self and with the help of ChatGPT
-
+        size = size*.5
         if size is None:
             size = self._size
 

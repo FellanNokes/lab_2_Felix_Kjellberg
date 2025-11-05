@@ -14,7 +14,7 @@ class Cube(Shape):
     - volume(float): the volume of the cube
 
     Nethods:
-    - translate(): adds the new x and y to the current position
+    - translate(x:float, y:float): adds the new x and y to the current position
 
     Example usage:
     >>> cube1 = cube(0,0,10)

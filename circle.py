@@ -15,7 +15,7 @@ class Circle(Shape):
     - perimeter(float): perimeter of circle
 
     Nethods:
-    - translate(): adds the new x and y to the current position
+    - translate(x:float, y:float): adds the new x and y to the current position
     - is_unit_circle() -> bool: returns True if the circle is located at 0, 0 and has a radius of 1 otherwise False
 
     Example usage:

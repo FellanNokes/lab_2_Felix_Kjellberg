@@ -14,7 +14,7 @@ class Sphere(Circle):
     - volume(float): the volume of the sphere
 
     Nethods:
-    - translate(): adds the new x and y to the current position
+    - translate(x:float, y:float): adds the new x and y to the current position
 
     Example usage:
     >>> sphere1 = sphere(0,0,10)
