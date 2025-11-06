@@ -1,5 +1,6 @@
 from circle import Circle
 import numpy as np
+from numbers import Number
 
 class Sphere(Circle):
     """
@@ -22,7 +23,7 @@ class Sphere(Circle):
     >>> print(sphere1)
     a sphere located at (x:2, y:3) that has a radius of 10 it has a surface area of 1256.6370614359173 and a volume of 4188.790204786391
     """
-    def __init__(self, x, y, radius):
+    def __init__(self, x: Number = 0, y: Number = 0, radius: Number = 1):
         """
         Initializes a new instance of the sphere class.
 

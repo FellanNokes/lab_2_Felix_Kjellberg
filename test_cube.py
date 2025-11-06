@@ -34,11 +34,6 @@ def test_eq_same_values_valid():
     cube2 = Cube(0,1,2)
     assert cube1 == cube2
 
-def test_eq_same_sizes_different_pos_not_same_valid():
-    cube1 = Cube(3,4,4)
-    cube2 = Cube(4,4,4)
-    assert cube1 != cube2
-
 def test_eq_same_pos_different_sizes_not_same_valid():
     cube1 = Cube(4,4,1)
     cube2 = Cube(4,4,4)

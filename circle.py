@@ -1,6 +1,7 @@
 import numpy as np
 from shape import Shape
 import utils as utl
+from numbers import Number
 
 
 class Circle(Shape):
@@ -26,7 +27,7 @@ class Circle(Shape):
     >>> print(circle1)
     A circle that is located at (x = 0 y = 0) it has a circumference of 12.566370614359172 and an area of 12.566370614359172)
     """
-    def __init__(self, x, y, radius):
+    def __init__(self, x :Number = 0, y :Number = 0, radius :Number = 1):
         """
         Initializes a new instance of the circle class.
 

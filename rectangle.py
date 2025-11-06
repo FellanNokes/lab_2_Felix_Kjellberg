@@ -1,5 +1,6 @@
 import utils as utl
 from shape import Shape
+from numbers import Number
 
 
 class Rectangle(Shape):
@@ -26,7 +27,7 @@ class Rectangle(Shape):
     >>> print(rectangle1)
     A rectangle located at (x = 2, y = 3) it has a perimeter of 16 and an area of 16
     """
-    def __init__(self, x: float, y: float, height: float, width: float):
+    def __init__(self, x: Number = 0, y: Number = 0, height: Number = 1, width: Number = 1):
         """
         Initializes a new instance of the Rectangle class.
 
@@ -80,7 +81,6 @@ class Rectangle(Shape):
     def __eq__(self, other) -> bool:
         return (
             type(self) is type(other)
-            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0 #TODO: maybe just use other.x == self.x
             and self.height == other.height
             and self.width == other.width
         )

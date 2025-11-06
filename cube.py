@@ -1,5 +1,6 @@
 import utils as utl
 from shape import Shape
+from numbers import Number
 
 class Cube(Shape):
     """
@@ -22,7 +23,7 @@ class Cube(Shape):
     >>> print(cube1)
     A cube located at (x = 2, y 3) it has the surface area of 600 and the volume of 1000
     """
-    def __init__(self, x, y, size: float):
+    def __init__(self, x: Number = 0, y: Number = 0, size: Number = 1):
         """
         Initializes a new instance of the Cube class
 

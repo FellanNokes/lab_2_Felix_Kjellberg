@@ -1,4 +1,5 @@
 import utils as utl
+from numbers import Number
 class Shape():
     """
     A class representing a shape
@@ -16,7 +17,7 @@ class Shape():
     >>> print(shape1)
     A shape located at (x:3, y:10)
     """
-    def __init__(self, x, y):
+    def __init__(self, x : Number= 0, y: Number = 0):
         """
         Initializes a new instance of the Shape class.
 
@@ -57,7 +58,6 @@ class Shape():
     def __eq__(self, other) -> bool:
         return (
             type(self) is type(other)
-            and ((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0.5 == 0 #TODO: maybe just use other.x == self.x
             and self.area == other.area
         )
 
