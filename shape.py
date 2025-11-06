@@ -36,6 +36,10 @@ class Shape():
     def y(self):
         return self._y
     
+    @property
+    def area(self):
+        return 0
+    
     def __repr__(self):
         return f"Shape(x = {self.x},y = {self.y})"
     

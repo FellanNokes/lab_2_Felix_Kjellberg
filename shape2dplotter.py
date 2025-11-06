@@ -34,13 +34,15 @@ class Shape2dPlotter:
     
     def plot(self, size=None):
         """
-        Takes in any amount of shapes of all types and plots them on a graph with cartesian coordinates
+        Takes in any amount of shapes of all types and plots them on a graph with cartesian coordinates,
+        prints 2d shapes with just a line around the perimiter,
+        prints 3d shapes that are filled in
         """
-        # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
-        # I have made some changes by my self and with the help of ChatGPT
-        size = size*.5
         if size is None:
             size = self._size
+
+        # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
+        # I have made some changes by my self and with the help of ChatGPT
 
         fig, ax = plt.subplots(figsize=(20, 20))
         fig.patch.set_facecolor("#ffffff")
@@ -81,8 +83,10 @@ class Shape2dPlotter:
                 y = shape.y - shape.height * 0.5
                 ax.add_patch(patches.Rectangle((x, y), shape.width, shape.height, fc='none', ec=color, lw=2))
             elif isinstance(shape, Cube):
-                x = shape.x - shape.sidelength * 0.5
-                y = shape.y - shape.sidelength * 0.5
-                ax.add_patch(patches.Rectangle((x, y), shape.sidelength, shape.sidelength, fc=color, ec=color))
+                x = shape.x - shape.size * 0.5
+                y = shape.y - shape.size * 0.5
+                ax.add_patch(patches.Rectangle((x, y), shape.size, shape.size, fc=color, ec=color))
+            else:
+                ax.add_patch(patches.Circle((shape.x, shape.y), 0.1, fc='black', ec='black'))
 
         plt.show()
