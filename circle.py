@@ -57,10 +57,10 @@ class Circle(Shape):
         return np.pi * self.radius**2
 
     def __repr__(self):
-        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, circumference={self.perimeter}, area={self.area}"
+        return f"Circle (x={self.x}, y={self.y}, radius={self.radius}, perimeter={self.perimeter}, area={self.area}"
 
     def __str__(self):
-        return f"A circle that is located at (x = {self.x} y = {self.y}) it has a circumference of {self.perimeter} and an area of {self.area})"
+        return f"A circle that is located at (x = {self.x} y = {self.y}) it has a perimeter of {self.perimeter} and an area of {self.area})"
 
     def is_unit_circle(self) -> bool:
         """returns True if the circle is located at 0, 0 and has a radius of 1 otherwise False"""

@@ -58,7 +58,7 @@ class Shape2dPlotter:
                     highest = (np.maximum(shape.height, shape.width))*.5
                     current = utl.add_to_max(abs(shape.x),abs(shape.y), highest)
                 elif isinstance(shape,Cube):
-                    current = utl.add_to_max(abs(shape.x),abs(shape.y),shape.size)
+                    current = utl.add_to_max(abs(shape.x),abs(shape.y),shape.size*.5)
 
                 if current > value:
                     value = current
@@ -92,9 +92,8 @@ class Shape2dPlotter:
 
         ax.grid(which='both', color='grey', linewidth=1, linestyle='-', alpha=0.2)
 
-        # Draw shapes, this part i did by myself
         colors = ['r', 'b', 'g', 'm', 'c', 'y', 'orange', 'purple']
-        
+        # Draw shapes, this part I did by myself
         for i,shape in enumerate(self._shapes):
             color = colors[i % len(colors)]
             if isinstance(shape, Circle):

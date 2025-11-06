@@ -21,6 +21,14 @@ def test_zero_radius_fail():
     with raises(ValueError):
         Circle(0,2,0)
 
+def test_circle_perimeter_valid():
+    circle = Circle(2, 3, 6)
+    assert round(circle.perimeter, 3) == 37.699
+
+def test_circle_area_valid():
+    circle = Circle(2, 3, 4)
+    assert round(circle.area, 3) == 50.265
+
 def test_eq_same_radius_xy_valid():
     circle1 = Circle(4,4,4)
     circle2 = Circle(4,4,4)
