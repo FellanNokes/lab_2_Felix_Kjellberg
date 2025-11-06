@@ -6,6 +6,7 @@ from shape import Shape
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 import numpy as np
+import utils as utl
 
 class Shape2dPlotter:
     """
@@ -24,22 +25,46 @@ class Shape2dPlotter:
     >>> plotter = Shaped2dPlotter(Circle(0,0,1),Rectangle(4,8,5,8))
     >>> plotter.plot()
     """
-    def __init__(self, *shapes: Shape, size=20, auto_plot=False):
+    def __init__(self, *shapes: Shape, size: int | float =20, auto_plot: bool =False, auto_size: bool = True):
         self._shapes = tuple(shapes)
         self._size = size
 
         if auto_plot:
-            self.plot(size)
+            self.plot(size, auto_size)
         
     
-    def plot(self, size=None):
+    def plot(self, size=None, auto_size: bool = True):
         """
         Takes in any amount of shapes of all types and plots them on a graph with cartesian coordinates,
-        prints 2d shapes with just a line around the perimiter,
-        prints 3d shapes that are filled in
+        2d shapes are outlined, 3d shapes that are filled in
+
+        Arguments:
+        - size (int | float | None): The axis length both positive and negative eg: 20 the range will be -20 to 20, size will be rounded
+        - auto_size (bool): 
+            if True, automatically adjusts the size based on posistion and size of the shapes
+            if False, uses the provided size
         """
+       
         if size is None:
             size = self._size
+
+        if auto_size:
+            value = 0
+            for shape in self._shapes:
+                current = 0
+                if isinstance(shape,Circle):
+                    current = utl.add_to_max(abs(shape.x),abs(shape.y), shape.radius)
+                elif isinstance(shape,Rectangle):
+                    highest = (np.maximum(shape.height, shape.width))*.5
+                    current = utl.add_to_max(abs(shape.x),abs(shape.y), highest)
+                elif isinstance(shape,Cube):
+                    current = utl.add_to_max(abs(shape.x),abs(shape.y),shape.size)
+
+                if current > value:
+                    value = current
+            size = value + 2
+
+        size = round(size)
 
         # I did first find this code here: https://pygmalion.nitri.org/cartesian-coordinates-with-matplotlib-1263.html 
         # I have made some changes by my self and with the help of ChatGPT
@@ -74,7 +99,7 @@ class Shape2dPlotter:
             color = colors[i % len(colors)]
             if isinstance(shape, Circle):
                 if isinstance(shape, Sphere):
-                    ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc=color, ec=color))
+                    ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc=color, ec='black', lw=2))
                 else:
                     ax.add_patch(patches.Circle((shape.x, shape.y), shape.radius, fc='none', ec=color, lw=2))
             elif isinstance(shape, Rectangle):
@@ -85,8 +110,8 @@ class Shape2dPlotter:
             elif isinstance(shape, Cube):
                 x = shape.x - shape.size * 0.5
                 y = shape.y - shape.size * 0.5
-                ax.add_patch(patches.Rectangle((x, y), shape.size, shape.size, fc=color, ec=color))
+                ax.add_patch(patches.Rectangle((x, y), shape.size, shape.size, fc=color, ec='black', lw=2))
             else:
-                ax.add_patch(patches.Circle((shape.x, shape.y), 0.1, fc='black', ec='black'))
+                ax.add_patch(patches.Circle((shape.x, shape.y), 0.05, fc='black', ec='black'))
 
         plt.show()
