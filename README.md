@@ -74,4 +74,10 @@ I wrote both **unit tests** and **manual tests** to verify that everything works
 
 ---
 
+## Video
+[link](https://youtu.be/-4R1mBkLU8Q)
+
+---
+
 This README provides a clear explanation of my workflow, decisions, and examples of how to use the classes developed in Lab 2.
+
