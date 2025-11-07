@@ -14,6 +14,26 @@ def test_negative_size_fail():
     with raises(ValueError):
         Cube(2,3,1,-4)
 
+def test_is_unit_cube_true():
+    cube = Cube(0,0,0,1)
+    assert cube.is_unit_cube() == True
+
+def test_is_unit_cube_wrong_value_size_false():
+    cube = Cube(0,0,0,1.5)
+    assert cube.is_unit_cube() == False
+
+def test_is_unit_cube_wrong_value_x_false():
+    cube = Cube(1,0,0,1)
+    assert cube.is_unit_cube() == False
+
+def test_is_unit_cube_wrong_value_y_false():
+    cube = Cube(0,-2,0,1)
+    assert cube.is_unit_cube() == False
+
+def test_is_unit_cube_wrong_value_z_false():
+    cube = Cube(0,0,10,1)
+    assert cube.is_unit_cube() == False
+
 def test_zero_size_fail():
     with raises(ValueError):
         Cube(2,3,4,0)

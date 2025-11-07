@@ -30,6 +30,27 @@ def test_zero_radius_fail():
     with raises(ValueError):
         Sphere(0,2,1,0)
 
+def test_is_unit_sphere_true():
+    sphere = Sphere(0,0,0,1)
+    assert sphere.is_unit_sphere() == True
+
+def test_is_unit_sphere_wrong_value_radius_false():
+    sphere = Sphere(0,0,0,1.5)
+    assert sphere.is_unit_sphere() == False
+
+def test_is_unit_sphere_wrong_value_x_false():
+    sphere = Sphere(1,0,0,1)
+    assert sphere.is_unit_sphere() == False
+
+def test_is_unit_sphere_wrong_value_y_false():
+    sphere = Sphere(0,-2,0,1)
+    assert sphere.is_unit_sphere() == False
+
+def test_is_unit_sphere_wrong_value_z_false():
+    sphere = Sphere(0,0,10,1)
+    assert sphere.is_unit_sphere() == False
+
+
 def test_eq_same_radius_xy_valid():
     sphere1 = Sphere(4,4,1,4)
     sphere2 = Sphere(4,4,1,4)

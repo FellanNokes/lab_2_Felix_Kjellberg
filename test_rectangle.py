@@ -25,6 +25,14 @@ def test_zero_width_fail():
     with raises(ValueError):
         Rectangle(0,0,3,0)
 
+def test_is_square_true():
+    rectangle = Rectangle(0,0,1,1)
+    assert rectangle.is_square() == True
+
+def test_is_square_different_value_false():
+    rectangle = Rectangle(0,0,2,1)
+    assert rectangle.is_square() == False
+
 def test_area_valid():
     rectangle = Rectangle(0,0,2,2)
     assert rectangle.area == 4
