@@ -23,7 +23,7 @@ class Cube(Shape):
     >>> print(cube1)
     A cube located at (x = 2, y 3) it has the surface area of 600 and the volume of 1000
     """
-    def __init__(self, x: Number = 0, y: Number = 0, size: Number = 1):
+    def __init__(self, x: Number = 0, y: Number = 0, z: Number = 0, size: Number = 1):
         """
         Initializes a new instance of the Cube class
 
@@ -33,8 +33,13 @@ class Cube(Shape):
         - size (float): the length of each side of the cube
         """
         super().__init__(x, y)
+        self._z = z
         self.size = size
 
+    @property
+    def z(self):
+        return self._z
+    
     @property
     def size(self):
         return self._size
@@ -58,8 +63,18 @@ class Cube(Shape):
         return self.size ** 3
     
     def __repr__(self):
-        return f"Cube (x ={self.x},y ={self.y}, size={self.size}, volume={self.volume}, sidearea={self.sidearea}, area={self.area})"
+        return f"Cube (x ={self.x},y ={self.y} z ={self.z}, size={self.size}, volume={self.volume}, sidearea={self.sidearea}, area={self.area})"
 
     def __str__(self):
-        return f"A cube located at (x = {self.x}, y {self.y}) each side is {self.size} long it has the surface area of {self.area} and the volume of {self.volume}"
+        return f"A cube located at (x:{self.x}, y:{self.y}, z:{self.z}) each side is {self.size} long it has the surface area of {self.area} and the volume of {self.volume}"
+    
+    def translate(self, x, y, z):
+        """Adds a new position to the current position"""
+        utl.validate_numbers(x,y,z)
+        self._x += x
+        self._y += y
+        self._z += z
+
+    def is_unit_cube(self) -> bool:
+        return self.x == 0 and self.y == 0 and self.z == 0 and self.size == 1
     

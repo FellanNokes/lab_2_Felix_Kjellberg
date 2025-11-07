@@ -31,14 +31,15 @@ For 3D shapes:
 
 * `Sphere` inherits from `Circle`.
 * `Cube` does **not** inherit from `Rectangle` because all sides of a cube are equal.
+* Both **3D** classes have a **z** positional parameter aswell and overides the `translate()` method from shape
 
 **Example usage:**
 
 ```python
 circle = Circle(x=5, y=5, radius=3)
 rectangle = Rectangle(x=2, y=3, width=4, height=6)
-sphere = Sphere(x=1, y=2, radius=5)
-cube = Cube(x=0, y=0, size=3)
+sphere = Sphere(x=1, y=2, z=3, radius=5)
+cube = Cube(x=0, y=0, z=3, size=3)
 ```
 
 ---

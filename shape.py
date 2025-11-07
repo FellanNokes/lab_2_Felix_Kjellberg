@@ -47,7 +47,6 @@ class Shape():
     def __str__(self):
         return f"A shape located at (x:{self.x}, y:{self.y})"
 
-    #TODO: add validation 
     def translate(self, x, y):
         """Adds a new position to the current position"""
         utl.validate_numbers(x,y)
