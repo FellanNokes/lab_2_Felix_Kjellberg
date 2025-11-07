@@ -7,6 +7,7 @@ import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 import numpy as np
 import utils as utl
+from numbers import Number
 
 class Shape2dPlotter:
     """
@@ -26,6 +27,9 @@ class Shape2dPlotter:
     >>> plotter.plot()
     """
     def __init__(self, *shapes: Shape, size: int | float =20, auto_plot: bool =False, auto_size: bool = True):
+        utl.validate_numbers(size)
+        utl.validate_type(*shapes, type_value=Shape)
+
         self._shapes = tuple(shapes)
         self._size = size
 
@@ -33,7 +37,7 @@ class Shape2dPlotter:
             self.plot(size, auto_size)
         
     
-    def plot(self, size=None, auto_size: bool = True):
+    def plot(self, size: Number = 20, auto_size: bool = True):
         """
         Takes in any amount of shapes of all types and plots them on a graph with cartesian coordinates,
         2d shapes are outlined, 3d shapes that are filled in
@@ -44,9 +48,7 @@ class Shape2dPlotter:
             if True, automatically adjusts the size based on posistion and size of the shapes
             if False, uses the provided size
         """
-       
-        if size is None:
-            size = self._size
+        utl.validate_numbers(size)
 
         if auto_size:
             value = 0
